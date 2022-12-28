@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block main %}
+{% load static %}
+{% load tailwind_tags %}
+
+
+<div class='flex flex-col justify-center items-center w-full h-screen overflow-hidden'>
+    <form  method="POST" action="{% url 'create-reservation' %}" class='w-96 bg-white text-gray-600 p-10 rounded-2xl'>
+        <h1 class="text-3xl text-bnb-bg-blue text-center mb-10">Create Reservation</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input id="submit-all" type="submit" value="Add Booking" class="bg-bnb-blue rounded-xl font-light text-2xl text-white h-14 my-6 w-full"/>
+    </form>
+</div>
+
+{% endblock %}

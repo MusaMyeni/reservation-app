@@ -5,54 +5,14 @@
 {% load render_table from django_tables2 %}
 
 <div class="flex flex-col h-screen ">
-     <div class="grid gap-4 grid-cols-4 w-full p-12 font-montserrat">
-
-        <div id="analytic-1" class="bg-white rounded-2xl p-8">
-            <h3 class="text-xs text-gray-500 mb-1">Card 1</h3>
-            <p class="text-xs">
-                Sub Info 1
-                <span class="text-sm">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </span>
-            </p>
+    <div class="grid gap-4 grid-cols-4 w-full p-12 font-montserrat">
+        <h1 class="text-3xl text-bnb-bg-blue">Welcome, {{ user.first_name }}</h1>
+    </div>
+    <div class="w-full h-2/3 px-12">
+        <div class="bg-white rounded-2xl w-full h-full">
+            {% render_table table %}
         </div>
-
-        <div id="analytic-1" class="bg-white rounded-2xl p-8">
-            <h3 class="text-xs text-gray-500 mb-1">Card 2</h3>
-            <p class="text-xs">
-                Sub Info 2
-                <span class="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </span>
-            </p>
-        </div>
-
-        <div id="analytic-1" class="bg-white rounded-2xl p-8">
-            <h3 class="text-xs text-gray-500 mb-1">Card 2</h3>
-            <p class="text-xs">
-                    Sub Info 2
-                    <span class="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    </span>
-            </p>
-       </div>
-       
-        <div id="analytic-1" class="bg-white rounded-2xl p-8">
-            <h3 class="text-xs text-gray-500 mb-1">Card 2</h3>
-            <p class="text-xs">
-                Sub Info 2
-                <span class="text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </span>
-            </p>
-        </div>
-
-     </div>
-     <div class="w-full h-2/3 px-12">
-          <div class="bg-white rounded-2xl w-full h-full">
-                {% render_table table %}
-          </div>
-     </div>
+    </div>
 </div>
 <script>
 

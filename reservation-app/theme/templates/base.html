@@ -1,6 +1,7 @@
 {% load tailwind_tags %}
 {% load static %}
 {% url 'home' as home_view %}
+{% url 'create-reservation' as create_reservation_view %}
 {% url 'logout' as logout_view %}
 
 
@@ -15,8 +16,7 @@
     <title>Musa's BnB</title>
 </head>
 <body class="flex w-screen h-screen bg-gray-100">
-
-   <aside class="w-24 bg-bnb-bg-blue">
+   <aside class="w-20 p-2 bg-bnb-bg-blue">
       <ul class="h-full w-full flex flex-col justify-center items-center p-1">
          
          <li class="mt-4 text-gray-100 hover:text-bnb-bg-blue hover:bg-gray-100 rounded-2xl w-full">
@@ -27,8 +27,10 @@
          </li>
 
          <li class="mt-4 text-gray-100 hover:text-bnb-bg-blue hover:bg-gray-100 rounded-2xl w-full">
-            <i class="fa-regular fa-calendar-plus text-3xl text-center w-full my-1"></i>
-            <p class="text-xs text-center">Add Booking</p>
+            <a href="{{ create_reservation_view }}">
+               <i class="fa-regular fa-calendar-plus text-3xl text-center w-full my-1"></i>
+               <p class="text-xs text-center">Add Booking</p>
+            </a>
          </li>
 
          <li class="grow"></li>
@@ -42,13 +44,6 @@
       </ul>
    </aside>
    <main class="grow overflow-y-scroll h-screen">
-      {% if messages %}
-         {% for message in messages %}
-            <div class="ml-14 text-green-500 text-xl">
-               <h1>{{ message|safe }}</h1>
-            </div>
-         {% endfor %}
-      {% endif %}
       {{ context }}
       {% block main %}
       {% endblock %}

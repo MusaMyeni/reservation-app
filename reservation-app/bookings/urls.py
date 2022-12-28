@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import HomeView
+from .views import HomeView, CreateReservationView
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home')
+    path('', HomeView.as_view(), name='home'),
+    path('create-reservation/', CreateReservationView.as_view(), name='create-reservation')
 ]
