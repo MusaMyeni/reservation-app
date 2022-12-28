@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load tailwind_tags %}
+{% load static %}
+{% tailwind_css %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation App</title>
+</head>
+<body class="bg-gray-100">    
+    <main class='flex flex-col justify-center items-center w-full h-screen overflow-hidden'>
+        <form  method="POST" class='w-96 bg-white text-gray-600 p-10 rounded-2xl'>
+            <img src="{% static 'img/logo.png' %}" alt="" class="w-full"/>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input id="submit-all" type="submit" value="Login" class="bg-bnb-blue rounded-xl font-light text-2xl text-white h-14 my-6 w-full"/>
+        </form>
+    </main>
+</body>
+</html>

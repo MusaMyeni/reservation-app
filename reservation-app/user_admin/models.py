@@ -54,7 +54,6 @@ class MyUserManager(BaseUserManager):
 
 # Create your models here.
 class MyUser(AbstractBaseUser, PermissionsMixin):  
-    class Meta:
     email = models.EmailField(('Email Address'), unique=True, max_length=255)
     first_name = models.CharField(('First Name'), db_index=True, max_length=255)
     last_name = models.CharField(('Last Name'), db_index=True, max_length=255, null=True)
