@@ -1,6 +1,9 @@
 {% load tailwind_tags %}
 {% load static %}
-{% url 'home' as c %}
+{% url 'home' as home_view %}
+{% url 'logout' as logout_view %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +34,10 @@
          <li class="grow"></li>
 
          <li class="my-4 text-gray-100 hover:text-bnb-bg-blue hover:bg-gray-100 rounded-2xl w-full">
-            <i class="fa-solid fa-arrow-right-from-bracket text-3xl text-center w-full my-1"></i>
-            <p class="text-xs text-center">Logout</p>
+            <a href="{{ logout_view }}">
+               <i class="fa-solid fa-arrow-right-from-bracket text-3xl text-center w-full my-1"></i>
+               <p class="text-xs text-center">Logout</p>
+            </a>
          </li>
       </ul>
    </aside>

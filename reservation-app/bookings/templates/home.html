@@ -2,6 +2,7 @@
 {% block main %}
 {% load static %}
 {% load tailwind_tags %}
+{% load render_table from django_tables2 %}
 
 <div class="flex flex-col h-screen ">
      <div class="grid gap-4 grid-cols-4 w-full p-12 font-montserrat">
@@ -49,7 +50,7 @@
      </div>
      <div class="w-full h-2/3 px-12">
           <div class="bg-white rounded-2xl w-full h-full">
-            
+                {% render_table table %}
           </div>
      </div>
 </div>
