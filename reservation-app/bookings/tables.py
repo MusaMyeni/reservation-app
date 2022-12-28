@@ -4,6 +4,6 @@ import django_tables2 as tables
 
 class ReservationTable(tables.Table):
     class Meta:
-        exclude = ('id', )
         model = Reservation
+        fields = ('rental__name', 'id', 'check_in', 'check_out', 'previous_reservation_id')
         template_name = "table.html"
