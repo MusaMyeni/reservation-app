@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load tailwind_tags %}
+{% load static %}
+{% tailwind_css %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="2;url={% url 'login' %}"> 
+    <title>Logged Out!</title>
+</head>
+<body class="bg-white">    
+    <main class='flex flex-col justify-center items-center w-full h-screen overflow-hidden'>  
+        <img src="{% static 'img/logo.png' %}" alt="" class="w-1/5"/>
+        <h1 class="text-bnb-bg-blue text-2xl">You've successfully logged out!</h1>
+    </main>
+</body>
+</html>

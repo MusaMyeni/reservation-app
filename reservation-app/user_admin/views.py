@@ -6,3 +6,7 @@ from .forms import MyAuthenticationForm
 class MyLoginView(LoginView):
     template_name = "login.html"
     authentication_form=MyAuthenticationForm
+
+class MyLogoutView(LogoutView):
+    template_name = "logout.html"
+    authentication_form=MyAuthenticationForm

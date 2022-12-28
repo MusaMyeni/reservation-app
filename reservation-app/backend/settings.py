@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     "theme",
 ]
 
-AUTH_USER_MODEL="user_admin.MyUser"
-
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -118,6 +116,15 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
+## Login Configs
+AUTH_USER_MODEL="user_admin.MyUser"
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = 'login/'
+
+# Static Configs
+STATIC_URL = "static/"
+STATIC_ROOT = "static/"
 
 
 # Static files (CSS, JavaScript, Images)
