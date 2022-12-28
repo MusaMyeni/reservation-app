@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 class HomeView(LoginRequiredMixin, SingleTableView):
-    queryset = Reservation.objects.prefetch_related().annotate(previous_reservation_id=Window(expression=Lag('id', 1), partition_by=[F('rental_id')], order_by=F('id').asc() )).values('rental__name', 'id', 'check_in', 'check_out', 'previous_reservation_id')
+    queryset = Reservation.objects.annotate(previous_reservation_id=Window(expression=Lag('id', 1), partition_by=[F('rental_id')], order_by=F('id').asc() )).values('rental__name', 'id', 'check_in', 'check_out', 'previous_reservation_id')
     table_class = ReservationTable
     template_name = "home.html"
 

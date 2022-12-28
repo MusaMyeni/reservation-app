@@ -20,15 +20,21 @@ class ReservationForm(ModelForm):
             Adding checks to see if the checkout date is after the checkin date
             Checking to see if the rental is already booked out within the required period of time
         '''
-        cleaned_data = super().clean()
-        rental = cleaned_data['rental']
-        check_in = cleaned_data['check_in']
-        check_out = cleaned_data['check_out']
+        try:
+            cleaned_data = super().clean()
+            rental = cleaned_data['rental']
+            check_in = cleaned_data['check_in']
+            check_out = cleaned_data['check_out']
+        except KeyError as exc:
+            raise ValidationError(("Missing 1 or more required fields"), code='invalid') from exc
+        
         is_booked = Reservation.objects.filter(Q(rental=rental) ,Q(check_in__range=[check_in, check_out]) | Q(check_out__range=[check_in, check_out])).exists()
 
         if is_booked:
-            raise ValidationError(("The desired timeslots for that location overlaps with another booking."), code='invalid')
+            raise ValidationError(("The desired timeslots for that location overlaps with another booking"), code='invalid')
 
         if check_in > check_out:
-            raise ValidationError(("Check in date cannot be after checkout date."), code='invalid')
+            raise ValidationError(("Check in date cannot be after checkout date"), code='invalid')
+
+        return cleaned_data
 
