@@ -1,0 +1,19 @@
+name: Musa's BnB Reservation App
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy: 
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: reservation-app
+          registry: ghcr.io
+          tags: latest
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_TOKEN }}
