@@ -132,8 +132,8 @@ LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = 'login/'
 
 # Static Configs
-STATIC_URL = "static/"
-STATIC_ROOT = "static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = "/static/"
 
 
 # Static files (CSS, JavaScript, Images)
