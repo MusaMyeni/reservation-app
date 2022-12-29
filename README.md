@@ -56,14 +56,14 @@ The application can be found here:
 
 Given the question above, i used a Lag function in order to achieve the desired result. I was, however, unclear if I should display the answer as a plain SQL Query using Django ORM notation, or via the frontend. So I did all three.
 
-Via Frontend:
+### Via Frontend:
 
 URL: [ec2-13-38-89-136.eu-west-3.compute.amazonaws.com](http://ec2-13-38-89-136.eu-west-3.compute.amazonaws.com/)   
 USERNAME: admin@dummyaccount.com  
 PASSWORD: #password123!  
 
 
-Via SQL Query:
+### Via SQL Query:
  
 ```SQL
 SELECT  rnt.name, rsv.id, rsv.check_in, rsv.check_out, lag(rsv.id, 1) OVER (
@@ -74,7 +74,7 @@ FROM bookings_reservation rsv
 LEFT JOIN bookings_rental rnt ON rnt.id = rsv.rental_id
 ```
 
-Via Django ORM:
+### Via Django ORM:
 
 
 ```Python
