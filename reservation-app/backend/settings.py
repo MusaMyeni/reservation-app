@@ -29,6 +29,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = bool(int(os.getenv('DEBUG')))
 
 ALLOWED_HOSTS = [
+    "http://ec2-13-38-89-136.eu-west-3.compute.amazonaws.com",
+    "www.ec2-13-38-89-136.eu-west-3.compute.amazonaws.com",
+    "ec2-13-38-89-136.eu-west-3.compute.amazonaws.com",
     "13.38.89.136",
     "127.0.0.1",
 ]
